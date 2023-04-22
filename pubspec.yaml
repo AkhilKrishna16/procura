@@ -81,6 +81,12 @@ flutter:
         - asset: assets/fonts/Source_Sans_3/static/SourceSans3-Medium.ttf
         - asset: assets/fonts/Source_Sans_3/static/SourceSans3-Bold.ttf
         - asset: assets/fonts/Source_Sans_3/static/SourceSans3-Regular.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Black.ttf
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

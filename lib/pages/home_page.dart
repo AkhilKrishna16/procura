@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../widgets/main_body.dart';
+
 class HomePage extends StatefulWidget {
   final String name;
   final int grade;
@@ -20,40 +22,54 @@ class _HomePageState extends State<HomePage> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
 
-    print(height);
-    print(width);
-
     return Scaffold(
-      body: Padding(
-        padding:
-            EdgeInsets.only(top: 70.0 / 844 * height, left: 20.0 / 390 * width),
-        child: Column(
-          children: [
-            Row(
+      backgroundColor: Color.fromARGB(255, 211, 239, 252),
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(
+                top: 70.0 / 844 * height, left: 20.0 / 390 * width),
+            child: Row(
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hi, ${widget.name}',
+                      'Hi, ${widget.name.split(' ')[0]}',
                       style: TextStyle(
-                        fontFamily: 'SourceSans3',
+                        fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
-                        fontSize: 22 / 844 * height,
+                        fontSize: 24 / 844 * height,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     Text(
                       'Grade ${widget.grade}, ${widget.nameOfSchool}',
                       style: TextStyle(
-                        fontFamily: 'SourceSans3',
-                        fontWeight: FontWeight.normal,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18 / 844 * height,
                       ),
                     ),
                   ],
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+          MainBody(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          )
+        ],
       ),
     );
   }
