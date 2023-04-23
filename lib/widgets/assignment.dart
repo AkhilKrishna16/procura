@@ -14,11 +14,11 @@ class Assignment extends StatelessWidget {
 
   Color get assignmentColor {
     if (dueDate.day - DateTime.now().day > 5) {
-      return Colors.green.withOpacity(0.4);
+      return Colors.green.withOpacity(0.2);
     } else if (dueDate.day - DateTime.now().day < 5) {
-      return Colors.red.withOpacity(0.4);
+      return Colors.red.withOpacity(0.2);
     } else {
-      return Colors.blue.withOpacity(0.4);
+      return Colors.blue.withOpacity(0.2);
     }
   }
 
@@ -61,7 +61,7 @@ class Assignment extends StatelessWidget {
                 padding: EdgeInsets.only(left: 8.0),
                 child: Text(
                   assignmentName,
-                  maxLines: 3,
+                  maxLines: 2,
                   style: TextStyle(
                     fontSize: 15,
                     fontFamily: 'Poppins',

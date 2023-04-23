@@ -6,6 +6,38 @@ import './class.dart';
 import './assignment.dart';
 
 class MainBody extends StatelessWidget {
+  var classes = [
+    {
+      'period': 1,
+      'course': 'Advanced Algebra 1 S2',
+      'teacher': 'Kadifi Nilovar',
+      'roomNumber': 'B123'
+    },
+    {
+      'period': 2,
+      'course': 'Spanish 1 S2',
+      'teacher': 'Maria Soto',
+      'roomNumber': 'B104'
+    },
+    {
+      'period': 3,
+      'course': 'ILA 8 Advanced YR',
+      'teacher': 'Faizha Piracha',
+      'roomNumber': 'C113'
+    },
+    {
+      'period': 4,
+      'course': 'US History 8 YR',
+      'teacher': 'Jennifer Fredrickson',
+      'roomNumber': 'B103',
+    },
+    {
+      'period': 5,
+      'course': 'Engineering Design and Innov 7/8 YR',
+      'teacher': 'Christoper Cochrane',
+      'roomNumber': 'C102',
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -28,10 +60,10 @@ class MainBody extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(
-                  top: 15.0,
-                  left: 15.0,
-                  bottom: 15.0,
+                padding: EdgeInsets.only(
+                  top: 15.0 / 844 * height,
+                  left: 15.0 / 390 * width,
+                  bottom: 15.0 / 844 * height,
                 ),
                 child: Row(
                   children: [
@@ -49,20 +81,21 @@ class MainBody extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  left: 15.0,
-                  right: 15.0,
+                  left: 15.0 / 390 * width,
+                  right: 15.0 / 390 * width,
                 ),
                 child: Container(
                   margin: EdgeInsets.zero,
-                  height: 350,
+                  height: 350 / 844 * height,
                   child: ListView.builder(
-                    itemCount: 4,
+                    padding: EdgeInsets.zero,
+                    itemCount: classes.length,
                     itemBuilder: (_, index) {
                       return Class(
-                        courseName: 'Advanced Algebra 1 S2',
-                        startTime: '07:00 AM',
-                        roomLocation: 'C102',
-                        teacher: 'Kadifi Nilovar',
+                        courseName: classes[index]['course'] as String,
+                        period: classes[index]['period'] as int,
+                        roomLocation: classes[index]['roomNumber'] as String,
+                        teacher: classes[index]['teacher'] as String,
                       );
                     },
                   ),
@@ -71,8 +104,8 @@ class MainBody extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(
                   top: 15.0 / 844 * height,
-                  left: 15.0,
-                  bottom: 15.0,
+                  left: 15.0 / 390 * width,
+                  bottom: 15.0 / 390 * width,
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,8 +125,8 @@ class MainBody extends StatelessWidget {
                 children: [
                   SizedBox(width: 8),
                   Container(
-                    width: 380,
-                    height: 140,
+                    width: 380 / 390 * width,
+                    height: 140 / 844 * height,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 10,

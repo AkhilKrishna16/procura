@@ -1,14 +1,27 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
 
 import './pages/home_page.dart';
+import './pages/settings_page.dart';
+import './pages/student_information_page.dart';
 
 void main() => runApp(Procura());
 
 class Procura extends StatefulWidget {
   @override
   State<Procura> createState() => _ProcuraState();
+
+  Map<String, WidgetBuilder> routes = {
+    '/home': (context) => HomePage(
+          name: 'Arjun Krishnamurthy',
+          grade: 08,
+          nameOfSchool: 'Pearson Middle School',
+          dayType: 'B',
+        ),
+    '/settings': (context) => SettingsPage(),
+    '/student_information': (context) => StudentInformationPage(),
+  };
 }
 
 class _ProcuraState extends State<Procura> {
@@ -16,11 +29,8 @@ class _ProcuraState extends State<Procura> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(
-        name: 'Josephine Firmstone',
-        grade: 07,
-        nameOfSchool: 'Junior High School',
-      ),
+      routes: widget.routes,
+      initialRoute: '/home',
     );
   }
 }
