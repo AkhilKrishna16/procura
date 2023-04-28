@@ -6,15 +6,11 @@ import '../widgets/main_body.dart';
 
 class HomePage extends StatefulWidget {
   final String name;
-  final int grade;
   final String nameOfSchool;
   final String dayType;
 
   HomePage(
-      {required this.name,
-      required this.grade,
-      required this.nameOfSchool,
-      required this.dayType});
+      {required this.name, required this.nameOfSchool, required this.dayType});
 
   var _isLoading = false;
 
@@ -25,19 +21,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
-  void _goToSettingsPage(BuildContext context) async {
-    setState(() {
-      widget._isLoading = true;
-    });
+  // void _goToSettingsPage(BuildContext context) async {
+  //   setState(() {
+  //     widget._isLoading = true;
+  //   });
 
-    await Future.delayed(Duration(milliseconds: 500));
+  //   await Future.delayed(Duration(milliseconds: 500));
 
-    Navigator.pushReplacementNamed(context, '/settings');
+  //   Navigator.pushReplacementNamed(context, '/settings');
 
-    setState(() {
-      widget._isLoading = true;
-    });
-  }
+  //   setState(() {
+  //     widget._isLoading = true;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Text(
-                            'Grade ${widget.grade}, ${widget.nameOfSchool}',
+                            widget.nameOfSchool,
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w400,
@@ -90,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
-                            fontSize: 20,
+                            fontSize: 20 / 844 * height,
                           ),
                         ),
                       ),
@@ -111,13 +107,13 @@ class _HomePageState extends State<HomePage> {
             label: 'Settings',
           )
         ],
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-            _goToSettingsPage(context);
-          });
-        },
+        // currentIndex: _currentIndex,
+        // onTap: (index) {
+        //   setState(() {
+        //     _currentIndex = index;
+        //     _goToSettingsPage(context);
+        //   });
+        // },
       ),
     );
   }

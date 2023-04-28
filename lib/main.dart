@@ -15,8 +15,7 @@ class Procura extends StatefulWidget {
   Map<String, WidgetBuilder> routes = {
     '/home': (context) => HomePage(
           name: 'Arjun Krishnamurthy',
-          grade: 08,
-          nameOfSchool: 'Pearson Middle School',
+          nameOfSchool: 'University of North Texas',
           dayType: 'B',
         ),
     '/settings': (context) => SettingsPage(),

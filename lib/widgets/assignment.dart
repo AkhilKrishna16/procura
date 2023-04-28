@@ -1,62 +1,41 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors_in_immutables, prefer_const_constructors
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
 class Assignment extends StatelessWidget {
   final String assignmentName;
-  final DateTime dueDate;
-  final String course;
+  final String grade;
 
-  Assignment(
-      {required this.assignmentName,
-      required this.dueDate,
-      required this.course});
-
-  Color get assignmentColor {
-    if (dueDate.day - DateTime.now().day > 5) {
-      return Colors.green.withOpacity(0.2);
-    } else if (dueDate.day - DateTime.now().day < 5) {
-      return Colors.red.withOpacity(0.2);
-    } else {
-      return Colors.blue.withOpacity(0.2);
-    }
-  }
+  Assignment({
+    required this.assignmentName,
+    required this.grade,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 12.0),
+      padding: EdgeInsets.only(right: 12.0, bottom: 4.0),
       child: Container(
-        height: 140,
-        width: 140,
+        height: 120,
+        width: 160,
         decoration: BoxDecoration(
-          color: assignmentColor,
+          color: Color.fromARGB(255, 211, 239, 252),
           borderRadius: BorderRadius.all(Radius.circular(9)),
+          boxShadow: [
+            BoxShadow(
+              spreadRadius: 1,
+              blurRadius: 0.2,
+              offset: Offset(0.0, 1.0),
+              color: Color.fromARGB(255, 193, 193, 193),
+            ),
+          ],
         ),
         child: Padding(
           padding: EdgeInsets.only(top: 4.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  SizedBox(width: 5),
-                  CircleAvatar(
-                    backgroundColor: assignmentColor.withOpacity(0.7),
-                    radius: 5.5,
-                  ),
-                  SizedBox(width: 4),
-                  Text(
-                    '${dueDate.day - DateTime.now().day} days left',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: Color.fromARGB(255, 28, 28, 28),
-                    ),
-                  ),
-                ],
-              ),
               Padding(
                 padding: EdgeInsets.only(left: 8.0),
                 child: Text(
@@ -71,17 +50,13 @@ class Assignment extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(
-                  left: 8.0,
-                  right: 4.0,
-                ),
+                padding: EdgeInsets.only(left: 8.0),
                 child: Text(
-                  course,
-                  maxLines: 2,
+                  grade,
                   style: TextStyle(
-                    fontWeight: FontWeight.w600,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
                     fontFamily: 'Poppins',
-                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ),

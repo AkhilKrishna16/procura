@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, prefer_is_empty
 
 import 'package:flutter/material.dart';
 
@@ -38,6 +38,30 @@ class MainBody extends StatelessWidget {
       'roomNumber': 'C102',
     }
   ];
+
+  var assignments = [
+    {
+      'assignmentName': 'Introduction to Linear Functions',
+      'grade': '98.00',
+    },
+    {
+      'assignmentName': 'Introduction to Linear Functions',
+      'grade': 'L',
+    },
+    {
+      'assignmentName': 'Introduction to Linear Functions',
+      'grade': '98.00',
+    }
+  ];
+
+  bool get expandOrNot {
+    if (assignments.length == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -73,7 +97,7 @@ class MainBody extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 3, 47, 83),
                         fontFamily: 'Poppins',
-                        fontSize: 14,
+                        fontSize: 14 / 844 * height,
                       ),
                     ),
                   ],
@@ -86,7 +110,7 @@ class MainBody extends StatelessWidget {
                 ),
                 child: Container(
                   margin: EdgeInsets.zero,
-                  height: 350 / 844 * height,
+                  height: expandOrNot ? 450 / 844 * height : 350 / 844 * height,
                   child: ListView.builder(
                     padding: EdgeInsets.zero,
                     itemCount: classes.length,
@@ -111,7 +135,7 @@ class MainBody extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'MY ASSIGNMENTS',
+                      'NEW ASSIGNMENTS ADDED',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.bold,
@@ -123,22 +147,40 @@ class MainBody extends StatelessWidget {
               ),
               Row(
                 children: [
-                  SizedBox(width: 8),
-                  Container(
-                    width: 380 / 390 * width,
-                    height: 140 / 844 * height,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      itemBuilder: (_, index) {
-                        return Assignment(
-                          dueDate: DateTime(2023, 10, 31),
-                          assignmentName: 'Introduction to Linear Functions',
-                          course: 'Advanced Algebra 1 S2',
-                        );
-                      },
-                    ),
-                  ),
+                  SizedBox(width: 8 / 390 * width),
+                  expandOrNot
+                      ? Container(
+                          width: 380 / 390 * width,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'No New Assignments',
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      : Container(
+                          height: 120 / 844 * height,
+                          width: 380 / 390 * width,
+                          child: ListView.builder(
+                            padding: EdgeInsets.only(left: 8.0 / 390 * width),
+                            scrollDirection: Axis.horizontal,
+                            itemCount: assignments.length,
+                            itemBuilder: (_, index) {
+                              return Assignment(
+                                assignmentName: assignments[index]
+                                    ['assignmentName'] as String,
+                                grade: assignments[index]['grade'] as String,
+                              );
+                            },
+                          ),
+                        ),
                 ],
               ),
             ],
