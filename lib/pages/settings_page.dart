@@ -105,43 +105,46 @@ class _SettingsState extends State<SettingsPage> {
           SizedBox(
             height: 22,
           ),
-          Column(
-            children: [
-              SettingsButton(
-                buttonName: 'Student Information',
-                buttonIcon: Icons.person,
-                navigationRoute: '/student_information',
-              ),
-              SettingsButton(
-                buttonName: 'Contact Teachers',
-                buttonIcon: Icons.email,
-                navigationRoute: '/student_information',
-              ),
-              SettingsButton(
-                buttonName: 'Student Credentials',
-                buttonIcon: Icons.security,
-                navigationRoute: '/student_information',
-              ),
-              SettingsButton(
-                buttonName: 'Formal Grade Report',
-                buttonIcon: Icons.edit_document,
-                navigationRoute: '/student_information',
-              ),
-              SettingsButton(
-                buttonName: 'Attendance',
-                buttonIcon: Icons.calendar_month,
-                navigationRoute: '/student_information',
-              ),
-              SettingsButton(
-                buttonName: 'About Procura',
-                buttonIcon: Icons.app_registration,
-                navigationRoute: '/student_information',
-              ),
-              SizedBox(
-                height: 22,
-              ),
-              LogoutButton(),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                SettingsButton(
+                  buttonName: 'Student Information',
+                  buttonIcon: Icons.person,
+                  navigationRoute: '/student_information',
+                ),
+                SettingsButton(
+                  buttonName: 'Contact Teachers',
+                  buttonIcon: Icons.email,
+                  navigationRoute: '/student_information',
+                ),
+                SettingsButton(
+                  buttonName: 'Student Credentials',
+                  buttonIcon: Icons.security,
+                  navigationRoute: '/student_information',
+                ),
+                SettingsButton(
+                  buttonName: 'Formal Grade Report',
+                  buttonIcon: Icons.edit_document,
+                  navigationRoute: '/student_information',
+                ),
+                SettingsButton(
+                  buttonName: 'Attendance',
+                  buttonIcon: Icons.calendar_month,
+                  navigationRoute: '/student_information',
+                ),
+                SettingsButton(
+                  buttonName: 'About Procura',
+                  buttonIcon: Icons.app_registration,
+                  navigationRoute: '/student_information',
+                ),
+                SizedBox(
+                  height: 22,
+                ),
+                LogoutButton(),
+              ],
+            ),
           ),
         ],
       ),

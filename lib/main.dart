@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import './pages/home_page.dart';
 import './pages/settings_page.dart';
 import './pages/student_information_page.dart';
+import './pages/grades_page.dart';
 
 void main() => runApp(Procura());
 
@@ -15,11 +16,12 @@ class Procura extends StatefulWidget {
   Map<String, WidgetBuilder> routes = {
     '/home': (context) => HomePage(
           name: 'Arjun Krishnamurthy',
-          nameOfSchool: 'University of North Texas',
+          nameOfSchool: 'Pearson Middle School',
           dayType: 'B',
         ),
     '/settings': (context) => SettingsPage(),
     '/student_information': (context) => StudentInformationPage(),
+    '/grades': (context) => GradesPage(),
   };
 }
 
@@ -29,7 +31,7 @@ class _ProcuraState extends State<Procura> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: widget.routes,
-      initialRoute: '/home',
+      initialRoute: '/grades',
     );
   }
 }
