@@ -45,11 +45,11 @@ class MainBody extends StatelessWidget {
       'grade': '98.00',
     },
     {
-      'assignmentName': 'Introduction to Linear Functions',
+      'assignmentName': 'US History Daily Project',
       'grade': 'L',
     },
     {
-      'assignmentName': 'Introduction to Linear Functions',
+      'assignmentName': 'Evaluation of Functions',
       'grade': '98.00',
     }
   ];
@@ -147,7 +147,6 @@ class MainBody extends StatelessWidget {
               ),
               Row(
                 children: [
-                  SizedBox(width: 8 / 390 * width),
                   expandOrNot
                       ? Container(
                           width: 380 / 390 * width,
@@ -165,20 +164,24 @@ class MainBody extends StatelessWidget {
                             ],
                           ),
                         )
-                      : Container(
-                          height: 120 / 844 * height,
-                          width: 380 / 390 * width,
-                          child: ListView.builder(
-                            padding: EdgeInsets.only(left: 8.0 / 390 * width),
-                            scrollDirection: Axis.horizontal,
-                            itemCount: assignments.length,
-                            itemBuilder: (_, index) {
-                              return Assignment(
-                                assignmentName: assignments[index]
-                                    ['assignmentName'] as String,
-                                grade: assignments[index]['grade'] as String,
-                              );
-                            },
+                      : MediaQuery.removePadding(
+                          context: context,
+                          child: Container(
+                            height: 120 / 844 * height,
+                            width: 380 / 390 * width,
+                            child: ListView.builder(
+                              padding: EdgeInsets.only(
+                                  left: 16.0 / 390 * width, right: 0),
+                              scrollDirection: Axis.horizontal,
+                              itemCount: assignments.length,
+                              itemBuilder: (_, index) {
+                                return Assignment(
+                                  assignmentName: assignments[index]
+                                      ['assignmentName'] as String,
+                                  grade: assignments[index]['grade'] as String,
+                                );
+                              },
+                            ),
                           ),
                         ),
                 ],

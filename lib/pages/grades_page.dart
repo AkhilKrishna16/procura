@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../widgets/grades_list.dart';
+
 class GradesPage extends StatefulWidget {
   @override
   State<GradesPage> createState() => _GradesPageState();
@@ -84,10 +86,10 @@ class _GradesPageState extends State<GradesPage> {
         body: TabBarView(
           physics: NeverScrollableScrollPhysics(),
           children: [
-            Center(child: Text('Marking Period 1')),
-            Center(child: Text('Marking Period 2')),
-            Center(child: Text('Marking Period 3')),
-            Center(child: Text('Marking Period 4')),
+            GradesList(grades: []),
+            GradesList(grades: []),
+            GradesList(grades: []),
+            GradesList(grades: []),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:procura/pages/gpa_page.dart';
 
 import './pages/home_page.dart';
 import './pages/settings_page.dart';
@@ -19,6 +20,7 @@ class Procura extends StatefulWidget {
           nameOfSchool: 'Pearson Middle School',
           dayType: 'B',
         ),
+    '/gpa': (context) => GPAPage(),
     '/settings': (context) => SettingsPage(),
     '/student_information': (context) => StudentInformationPage(),
     '/grades': (context) => GradesPage(),
@@ -31,7 +33,7 @@ class _ProcuraState extends State<Procura> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: widget.routes,
-      initialRoute: '/grades',
+      initialRoute: '/home',
     );
   }
 }
