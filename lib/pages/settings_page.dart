@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:procura/widgets/logout_button.dart';
 
 import '../widgets/settings_button.dart';
+import '../widgets/color_theme.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -40,74 +41,13 @@ class _SettingsState extends State<SettingsPage> {
         ),
       ),
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 40.0, left: 15, right: 15),
-            child: Container(
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(9),
-                ),
-                color: Colors.grey.withOpacity(0.3),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(12.0),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 0.5,
-                              spreadRadius: 0.5,
-                              offset: Offset(0.0, 1.0),
-                              color: Color.fromARGB(255, 138, 137, 137),
-                            ),
-                          ],
-                        ),
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Text(
-                            'A',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 88, 88, 88),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 22),
-                      Text(
-                        'Arjun Krishnamurthy',
-                        maxLines: 2,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 24,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 20.0, left: 15, right: 15),
             ),
-          ),
-          SizedBox(
-            height: 22,
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
+            Column(
               children: [
                 SettingsButton(
                   buttonName: 'Student Information',
@@ -120,7 +60,7 @@ class _SettingsState extends State<SettingsPage> {
                   navigationRoute: '/student_information',
                 ),
                 SettingsButton(
-                  buttonName: 'Student Credentials',
+                  buttonName: 'Login Security',
                   buttonIcon: Icons.security,
                   navigationRoute: '/student_information',
                 ),
@@ -140,13 +80,14 @@ class _SettingsState extends State<SettingsPage> {
                   navigationRoute: '/student_information',
                 ),
                 SizedBox(
-                  height: 22,
+                  height: 32,
                 ),
+                ColorTheme(),
                 LogoutButton(),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -33,7 +33,7 @@ class _ProcuraState extends State<Procura> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: widget.routes,
-      initialRoute: '/home',
+      initialRoute: '/settings',
     );
   }
 }
