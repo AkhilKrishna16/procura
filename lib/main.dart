@@ -31,6 +31,9 @@ class _ProcuraState extends State<Procura> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       debugShowCheckedModeBanner: false,
       routes: widget.routes,
       initialRoute: '/settings',

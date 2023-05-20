@@ -24,8 +24,8 @@ class Assignment extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               spreadRadius: 1,
-              blurRadius: 0.2,
-              offset: Offset(0.0, 1.0),
+              blurRadius: 0.1,
+              offset: Offset(0.0, 0.5),
               color: Color.fromARGB(255, 193, 193, 193),
             ),
           ],

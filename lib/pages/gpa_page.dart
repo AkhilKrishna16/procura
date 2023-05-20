@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../widgets/gpa_box.dart';
+
 class GPAPage extends StatefulWidget {
   @override
   State<GPAPage> createState() => _GPAPageState();
@@ -35,6 +37,21 @@ class _GPAPageState extends State<GPAPage> {
             ],
           ),
         ),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                GPABox(
+                  typeOfGPA: 'Unweighted GPA',
+                  gpa: '4.79/6.00',
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

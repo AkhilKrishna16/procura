@@ -56,97 +56,102 @@ class Grade extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(top: 8.0),
-      child: Flexible(
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-            side: BorderSide(
-              color: Colors.grey.withOpacity(0.5),
-              width: 0.5,
-            ),
-          ),
-          margin: EdgeInsets.only(top: 8.0, right: 8.0, left: 8.0),
-          elevation: 1,
-          child: SizedBox(
-            height: 95,
-            child: Padding(
-              padding: EdgeInsets.only(
-                  top: 8.0 / 844 * height, bottom: 8.0 / 844 * height),
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: 12.0,
-                  right: 8.0,
+      child: Flex(
+        direction: Axis.horizontal,
+        children: [
+          Flexible(
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                side: BorderSide(
+                  color: Colors.grey.withOpacity(0.5),
+                  width: 0.5,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      child: Text(
-                        course,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18 / 844 * height,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        maxLines: 2,
-                      ),
+              ),
+              margin: EdgeInsets.only(top: 8.0, right: 8.0, left: 8.0),
+              elevation: 1,
+              child: SizedBox(
+                height: 95,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      top: 8.0 / 844 * height, bottom: 8.0 / 844 * height),
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: 12.0,
+                      right: 8.0,
                     ),
-                    Row(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        changeOrNot
-                            ? Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Container(
-                                  height: 28,
-                                  width: 55,
-                                  decoration: BoxDecoration(
-                                    color: gradeChangeColor,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(6 / 844 * height),
-                                    ),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      '$changeString${gradeChange.toStringAsFixed(2)}',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w600,
+                        Flexible(
+                          child: Text(
+                            course,
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 18 / 844 * height,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            maxLines: 2,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            changeOrNot
+                                ? Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Container(
+                                      height: 28,
+                                      width: 55,
+                                      decoration: BoxDecoration(
+                                        color: gradeChangeColor,
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(6 / 844 * height),
+                                        ),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '$changeString${gradeChange.toStringAsFixed(2)}',
+                                          style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
                                       ),
                                     ),
+                                  )
+                                : Container(),
+                            Container(
+                              height: 45,
+                              width: 85,
+                              decoration: BoxDecoration(
+                                color: gradeColor,
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(6 / 844 * height)),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  grade.toStringAsFixed(2),
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 22 / 844 * height,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                              )
-                            : Container(),
-                        Container(
-                          height: 45,
-                          width: 85,
-                          decoration: BoxDecoration(
-                            color: gradeColor,
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(6 / 844 * height)),
-                          ),
-                          child: Center(
-                            child: Text(
-                              grade.toStringAsFixed(2),
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 22 / 844 * height,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600,
                               ),
                             ),
-                          ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

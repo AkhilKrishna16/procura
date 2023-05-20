@@ -70,8 +70,8 @@ class _SettingsState extends State<SettingsPage> {
                   navigationRoute: '/student_information',
                 ),
                 SettingsButton(
-                  buttonName: 'Attendance',
-                  buttonIcon: Icons.calendar_month,
+                  buttonName: 'Appearance',
+                  buttonIcon: Icons.dark_mode_rounded,
                   navigationRoute: '/student_information',
                 ),
                 SettingsButton(

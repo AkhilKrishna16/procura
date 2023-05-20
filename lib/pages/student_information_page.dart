@@ -2,7 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-class StudentInformationPage extends StatelessWidget {
+class StudentInformationPage extends StatefulWidget {
+  @override
+  State<StudentInformationPage> createState() => _StudentInformationPageState();
+}
+
+class _StudentInformationPageState extends State<StudentInformationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,35 +37,60 @@ class StudentInformationPage extends StatelessWidget {
         padding: EdgeInsets.only(top: 8.0, left: 4.0, right: 4.0),
         child: Column(
           children: [
-            Card(
-              child: Container(
-                height: 50,
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Text(
-                        'name',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey.withOpacity(.95),
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
+            Container(
+              margin: EdgeInsets.only(top: 10.0, left: 4.0, right: 4.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(9)),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    spreadRadius: 1,
+                    color: Colors.grey,
+                    blurRadius: 1,
+                  )
+                ],
+              ),
+              height: 150,
+              width: 360,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 1,
+                          )
+                        ],
+                      ),
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                        child: Text(
+                          'A',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poppins',
+                          ),
                         ),
                       ),
-                      SizedBox(width: 10),
-                      Text(
-                        'Arjun Krishnamurthy',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  Text(
+                    'Arjun Krishnamurthy',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
